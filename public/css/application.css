@@ -1,0 +1,41 @@
+.container {
+  margin: 20px auto;
+  width: 600px;
+  padding: 0px 20px 20px 20px;
+  border: 1px dotted black;
+}
+th {
+  text-align: left;
+}
+
+.racer_table td {
+  background-color: purple;
+  height: 30px;
+  width: 30px;
+  border: 2px solid black;
+}
+
+.racer_table td.active {
+  background-color: black;
+}
+
+#Player2 td.active {
+  background-color: orange;
+}
+
+#reset {
+  margin-top: 15px;
+
+}
+
+#instructions {
+  
+}
+
+#winner {
+  position: absolute; top: 45%; right: 30%;
+  font-style: sans-serif;
+  font-size: 12em;
+  color: red;
+
+}
