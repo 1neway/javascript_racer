@@ -26,12 +26,13 @@ $(document).ready(function () {
     };
        
     if ($(activeLocation).siblings(':last').hasClass('active')){
-         $("#winner").html("Winner " + activeLocation.parent().data('name'));
          $(document).off("keyup", keyupFunction);
             var endTime = new Date().getTime();
             var totalTime = parseFloat((endTime - startTime)/1000);
             var winner = activeLocation.parent().data('name');
-            
+         $("#winner").html("Winner " + activeLocation.parent().data('name') + ", Time: " + totalTime + " seconds");
+         $("#url").html("Here is a semi-permanent record of your achievement: ");
+
        $.post("/winner", {stats: {winner: winner, time: totalTime}});
     };
 

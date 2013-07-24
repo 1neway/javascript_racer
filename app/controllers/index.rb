@@ -55,3 +55,9 @@ post '/winner' do
   Game.find(@game.id).update_attributes(winner: params[:stats][:winner], 
                                         time: params[:stats][:time])
 end
+
+get '/game/:id' do
+  @game = Game.find_by_id(params[:id])
+  erb :results
+end
+
