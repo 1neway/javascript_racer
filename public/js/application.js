@@ -1,30 +1,56 @@
+
+
 $(document).ready(function () {
   
-  $(document).on("keyup", function(event) {
-    if(event.keyCode === 65) {
-      var activeLocation = $("#Player1 td.active");
-      var position = $('.active').index(activeLocation) + 1;      
-      $(activeLocation).removeClass("active").next().addClass('active');       
-    };
+  var count = 0;
+  var startTime = null;
 
-    if(event.keyCode === 76) {
-      var activeLocation = $("#Player2 td.active");
-      var position = $('.active').index(activeLocation) + 1;      
-      $(activeLocation).removeClass("active").next().addClass('active'); 
-
-    };
+  var keyupFunction  = function(event){
     
+    count++;
+    if (count === 1) {
+      startTime = new Date().getTime();
+    }
+
+    
+    if(event.keyCode === 65) {
+         var activeLocation = $("#Player1 td.active");
+         var position = $('.active').index(activeLocation) + 1;      
+         $(activeLocation).removeClass("active").next().addClass('active');       
+    };
+ 
+    if(event.keyCode === 76) {
+         var activeLocation = $("#Player2 td.active");
+         var position = $('.active').index(activeLocation) + 1;      
+         $(activeLocation).removeClass("active").next().addClass('active'); 
+    };
+       
     if ($(activeLocation).siblings(':last').hasClass('active')){
-      // alert ("Winner:" + activeLocation.parent().attr('id'));
-      $("#winner").html("Winner " + activeLocation.parent().attr('id'));
+         $("#winner").html("Winner " + activeLocation.parent().data('name'));
+         $(document).off("keyup", keyupFunction);
+            var endTime = new Date().getTime();
+            var totalTime = parseFloat((endTime - startTime)/1000);
+            var winner = activeLocation.parent().data('name');
+            
+       $.post("/winner", {stats: {winner: winner, time: totalTime}});
+    };
 
-    $('form').on('submit'), function(event) {
-      location.reload(); 
+       
+    $('form').on('submit', function(event) {
+         location.reload(); 
+    });
 
-      };
-    }; 
+    // $('#signup input').on("keyup", function(event) {
+    //   event.();
+    // })
 
-  });     
+  };   
 
+  $(document).on("keyup", keyupFunction);  
 
-});
+  // $("#signup").submit(player, function(event) {
+  //   event.preventDefault();
+  //   console.log(event);
+
+  });
+// });

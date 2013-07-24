@@ -1,0 +1,76 @@
+<div id="game">
+
+  <h1>JavaScript Racer</h1>
+
+    <table class="racer_table">
+      <tr id ="Player1" data-name=<%="#{@player1.name.capitalize}"%>>
+        <td class="active"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Finish</td>
+      </tr>
+      <tr id ="Player2" data-name=<%="#{@player2.name.capitalize}"%>>
+        <td class="active"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Finish</td>
+      </tr>
+    </table>
+  <div id="instructions">
+    <h2 id="player1"><%=  @player1.name.capitalize %></h2>
+      <p>Press "A" to race</p>
+    <h2 id="player2"><%=  @player2.name.capitalize %></h2>
+      <p>Press "L" to race</p>
+  </div>
+
+  <div id="winner">
+    
+  </div>
+
+<form>
+  <input type="submit" value="Start Over" id="reset">
+</form>
+
+</div>
